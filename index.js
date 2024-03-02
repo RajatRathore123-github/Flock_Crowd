@@ -12,6 +12,9 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import { error } from "console";
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
+import { register } from "./controllers/auth.js";
 
 /**
  * CONFIGURATIONS
@@ -41,6 +44,17 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage });
+
+/**
+ * ROUTES WITH FILES
+ */
+app.post("/auth/register", upload.single("picture"), register);
+
+/**
+ * ROUTES WITH FILES
+ */
+app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 
 /**
  * MONGOOSE SETUP
