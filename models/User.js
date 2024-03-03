@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema(
      * firstname: The first name of the user
      * @type {String}
      */
-    firstname: {
+    firstName: {
       type: String,
       required: true,
       min: 2,
@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema(
      * lastname: The last name of the user
      * @type {String}
      */
-    lastname: {
+    lastName: {
       type: String,
       required: true,
       min: 2,
